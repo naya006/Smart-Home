@@ -5,7 +5,7 @@ from backend import SmartHome, SmartPlug, SmartDoor
 
 
 class ToggleSwitch(tk.Canvas):
-    """A clickable on/off switch drawn in code, so no image files are needed."""
+    """A clickable on/off switch"""
 
     def __init__(self, parent, command):
         super().__init__(parent, width=60, height=30, highlightthickness=0, cursor="hand2")
@@ -50,7 +50,7 @@ class SmartHomeApp:
         self.refresh()
 
     def buildRows(self):
-        """(Re)create a row of widgets for every device."""
+        
         for child in self.deviceFrame.winfo_children():
             child.destroy()
         self.rows = []
@@ -75,7 +75,7 @@ class SmartHomeApp:
             self.rows.append({"status": statusLabel, "switch": switch})
 
     def refresh(self):
-        """Update every label so the GUI matches the backend."""
+        
         for device, row in zip(self.home.getDevices(), self.rows):
             if isinstance(device, SmartDoor):
                 text = "Open" if device.getSwitchedOn() else "Closed"
