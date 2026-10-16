@@ -1,9 +1,9 @@
-"""Smart Home backend: device classes and the SmartHome manager."""
+"""Smart Home backend"""
 import random
 
 
 class Device:
-    """Base class for anything that can be switched on/off."""
+
 
     def __init__(self, name="Device"):
         self._name = name
